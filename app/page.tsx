@@ -1,18 +1,20 @@
-import MainSection from "@/components/main-section"
-import DailyRewards from "@/components/daily-rewards"
-import DriverRewards from "@/components/driver-rewards"
-import PassengerRewards from "@/components/passenger-rewards"
+import { HomeHeader } from "@/components/home/header"
+import { Services } from "@/components/home/services"
+import { Future } from "@/components/home/future"
+import { MissionVision } from "@/components/home/mission-vision"
+import { Stats } from "@/components/home/stats"
 import Footer from "@/components/footer"
 
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col">
-      <MainSection />
-      <div className="bg-[#FDF2E9] pt-16">
-        <DailyRewards />
-        <DriverRewards />
-        <PassengerRewards />
-      </div>
+    <div className="min-h-screen flex flex-col bg-[#FDF2E9]">
+      <HomeHeader />
+      <main>
+        <Services />
+        <Future />
+        <Stats />
+        <MissionVision />
+      </main>
       <Footer />
     </div>
   )
