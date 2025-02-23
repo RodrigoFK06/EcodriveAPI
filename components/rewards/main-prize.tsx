@@ -2,20 +2,19 @@
 
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { FadeIn } from "./animations/fade-in"
-import TypingAnimation from "./typing-animation"
+import { FadeIn } from "../animations/fade-in"
+import TypingAnimation from "../ui/typing-animation"
 import { useEffect, useState } from "react"
 import type { MainPrize } from "@/types/main-prize"
 import { fetchMainPrize } from "@/lib/api-main-prize"
-import Header from "./header"
 
-export default function MainSection() {
+export default function MainPrize() {
   const [mainPrize, setMainPrize] = useState<MainPrize>({
     title: "¡GRAN PREMIO DEL MES!",
     subtitle: "2 Viajes a Malabrigo 3D/2N\n(2 personas todo pagado)",
     note: "Nota: La entrega del premio será para conductor y pasajero",
     date: "Fecha: 30 de Marzo",
-    imageUrl: "\Portada Premios.svg",
+    imageUrl: "/PortadaPremios.svg",
   })
   const [isLoading, setIsLoading] = useState(true)
 
@@ -52,15 +51,12 @@ export default function MainSection() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/30" />
       </motion.div>
-
-      <Header />
-
+      <div className="absolute inset-0 bg-black/30" />
       <FadeIn>
         <div className="absolute inset-0 container mx-auto flex flex-col items-center justify-center px-4">
           <motion.h1
-            className="text-5xl md:text-6xl font-black text-white mb-6 text-center"
+            className="text-5xl md:text-6xl font-bold text-white mb-6 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8 }}
@@ -68,7 +64,7 @@ export default function MainSection() {
             <TypingAnimation text={mainPrize.title} />
           </motion.h1>
           <motion.div
-            className="text-white text-2xl md:text-3xl text-center font-bold"
+            className="text-white text-2xl md:text-3xl text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
@@ -85,8 +81,8 @@ export default function MainSection() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
           >
-            <p className="text-white/90 text-sm mb-2 font-regular">{mainPrize.note}</p>
-            <p className="text-white/90 text-sm font-regular">{mainPrize.date}</p>
+            <p className="text-white/90 text-sm mb-2">{mainPrize.note}</p>
+            <p className="text-white/90 text-sm">{mainPrize.date}</p>
           </motion.div>
         </div>
       </FadeIn>

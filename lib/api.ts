@@ -1,39 +1,21 @@
 import type { ApiResponse } from "@/types/rewards"
 import { fallbackRewards } from "./fallback-data"
 
-export async function fetchDriverRewards(): Promise<ApiResponse> {
+export async function fetchFromApi<T>(endpoint: string, fallbackData: T): Promise<{ data: T; message?: string; error?: string }> {
   try {
-    const response = await fetch("/api/driver-rewards")
+    const response = await fetch(`/api/${endpoint}`);
+
     if (!response.ok) {
-      return {
-        data: fallbackRewards.driverRewards,
-        message: "Mostrando datos de ejemplo. Actualizando premios...",
-      }
+      console.warn(`⚠️ API Error en ${endpoint}: ${response.statusText}`);
+      return { data: fallbackData, message: `Mostrando datos de ejemplo. Actualizando ${endpoint}...` };
     }
-    return await response.json()
+
+    const data = await response.json();
+    return { data };
   } catch (error) {
-    return {
-      data: fallbackRewards.driverRewards,
-      message: "Mostrando datos de ejemplo. Actualizando premios...",
-    }
+    console.error(`❌ Error en fetchFromApi(${endpoint}):`, error);
+    return { data: fallbackData, message: `Mostrando datos de ejemplo. Actualizando ${endpoint}...`, error: "Error al obtener datos" };
   }
 }
 
-export async function fetchPassengerRewards(): Promise<ApiResponse> {
-  try {
-    const response = await fetch("/api/passenger-rewards")
-    if (!response.ok) {
-      return {
-        data: fallbackRewards.passengerRewards,
-        message: "Mostrando datos de ejemplo. Actualizando premios...",
-      }
-    }
-    return await response.json()
-  } catch (error) {
-    return {
-      data: fallbackRewards.passengerRewards,
-      message: "Mostrando datos de ejemplo. Actualizando premios...",
-    }
-  }
-}
 

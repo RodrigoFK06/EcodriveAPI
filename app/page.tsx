@@ -3,7 +3,7 @@ import { Services } from "@/components/home/services"
 import { Future } from "@/components/home/future"
 import { MissionVision } from "@/components/home/mission-vision"
 import { Stats } from "@/components/home/stats"
-import Footer from "@/components/footer"
+import Footer from "@/components/ui/footer"
 
 export default function HomePage() {
   return (

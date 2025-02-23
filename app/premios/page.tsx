@@ -1,8 +1,8 @@
-import MainSection from "@/components/main-section"
-import DailyRewards from "@/components/daily-rewards"
-import DriverRewards from "@/components/driver-rewards"
-import PassengerRewards from "@/components/passenger-rewards"
-import Footer from "@/components/footer"
+import MainSection from "@/components/rewards/main-section"
+import DailyRewards from "@/components/rewards/daily-rewards"
+import DriverRewards from "@/components/rewards/driver-rewards"
+import PassengerRewards from "@/components/rewards/passenger-rewards"
+import Footer from "@/components/ui/footer"
 
 export default function Home() {
   return (

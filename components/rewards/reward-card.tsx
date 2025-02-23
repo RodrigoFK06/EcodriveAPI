@@ -1,4 +1,4 @@
-import FlipCard from "./ui/flip-card"
+import FlipCard from "../ui/flip-card"
 
 interface RewardCardProps {
   title: string

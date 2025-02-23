@@ -3,7 +3,7 @@
 import type { Reward } from "@/types/rewards"
 import RewardCard from "./reward-card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
-import SkeletonLoader from "./skeleton-loader"
+import SkeletonLoader from "../ui/skeleton-loader"
 import { motion } from "framer-motion"
 
 interface RewardsGridProps {

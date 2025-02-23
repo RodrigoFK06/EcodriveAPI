@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import type { Reward } from "@/types/rewards"
 import { fetchDriverRewards } from "@/lib/api"
 import RewardsGrid from "./rewards-grid"
-import LoadingMessage from "./ui/loading-message"
+import LoadingMessage from "../ui/loading-message"
 
 export default function DriverRewards() {
   const [rewards, setRewards] = useState<Reward[]>([])
