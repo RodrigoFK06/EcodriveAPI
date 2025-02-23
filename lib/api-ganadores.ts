@@ -14,5 +14,6 @@ const fallbackWinners = {
 };
 
 export async function fetchWinners(): Promise<WinnersApiResponse> {
-  return fetchFromApi("ganadores", fallbackWinners);
+  const response = await fetchFromApi("ganadores", fallbackWinners);
+  return response.data;
 }

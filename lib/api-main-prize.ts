@@ -7,6 +7,13 @@ const fallbackMainPrize: MainPrizeResponse = {
   note: "Nota: La entrega del premio será para conductor y pasajero",
   date: "Fecha: 30 de Marzo",
   imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-MxfnQwYd5biTfe7wGrW7q6qS8eAN7C.png",
+  data: {
+    title: "Premio Secundario",
+    subtitle: "Viaje a la playa",
+    note: "Nota: Premio para dos personas",
+    date: "Fecha: 15 de Abril",
+    imageUrl: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-MxfnQwYd5biTfe7wGrW7q6qS8eAN7C.png"
+  }
 };
 
 export async function fetchMainPrize(): Promise<{ data: MainPrizeResponse; error?: string }> {

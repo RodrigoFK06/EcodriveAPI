@@ -7,6 +7,11 @@ export interface MainPrize {
 }
 
 export interface MainPrizeResponse {
+  title:string
+  subtitle:string
+  note:string
+  date:string
+  imageUrl:string
   data: MainPrize
   error?: string
 }
