@@ -18,4 +18,30 @@ export async function fetchFromApi<T>(endpoint: string, fallbackData: T): Promis
   }
 }
 
+export async function fetchDriverRewards() {
+  try {
+    const response = await fetch("/api/driver-rewards");
+    if (!response.ok) throw new Error("Error en API de conductores");
 
+    return await response.json();
+  } catch (error) {
+    return {
+      data: fallbackRewards.driverRewards,
+      message: "Mostrando datos de ejemplo. Actualizando premios...",
+    };
+  }
+}
+
+export async function fetchPassengerRewards() {
+  try {
+    const response = await fetch("/api/passenger-rewards");
+    if (!response.ok) throw new Error("Error en API de pasajeros");
+
+    return await response.json();
+  } catch (error) {
+    return {
+      data: fallbackRewards.passengerRewards,
+      message: "Mostrando datos de ejemplo. Actualizando premios...",
+    };
+  }
+}
